@@ -1,0 +1,5 @@
+# This repository holds a README and nothing else in git: the released files are attached to the releases.
+# Everything is ignored unless it is named here, so a stray "git add ." can never publish a build folder or a key.
+*
+!README.md
+!.gitignore
