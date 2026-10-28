@@ -9,13 +9,18 @@ An unofficial desktop companion for Star Citizen, for Windows.
 ## What VerseOps is
 
 - A small Windows app that runs beside Star Citizen.
-- It counts down the Executive Hangar and the Ruin Station vault door, and alerts you before they open.
-- It shows community prices, plans where to sell a hold, and works out trade and refining profit.
-- It lets you try ship loadouts, with each gun's damage, shot speed, range and penetration distance.
-- It can show the timers in a small overlay on top of the game.
+- It counts down the Executive Hangar and the Ruin Station vault door, and alerts you before they open. The door's countdown starts from your mark: press **Door just opened** the moment it opens. A mark gives alerts for about two hours; after that, mark the door again.
+- You can copy one of your own hangar timers, once synced, as a share code for a friend on the same server. Their VerseOps accepts the code until a day after that sync.
+- It also runs countdowns and keeps track of your refinery jobs: enter the time the refinery terminal shows, and it alerts you when the job should be done.
+- It shows community prices and prices you enter yourself, and plans where to sell a hold. It works out trade profit, and refining profit from the yield and fee you enter.
+- It lets you try, save, share and compare ship loadouts. It shows the guns' damage and, where the data gives them, their shot speed, range and penetration distance; missile guidance (infrared, electromagnetic or cross-section); the ship's signatures; and its cargo, counting fitted cargo modules. It also shows where a ship is sold or rented, by UEX's community reports.
+- Its Item Finder shows the shops reported to sell an item, and lists items with no shop report as well, with what the game data says about getting them (crafting, loot, Wikelo exchanges). Where a game record is linked, an item's sheet shows its game facts and, when the record names one, its picture from the Star Citizen Wiki or Cornerstone; for some items it also shows where players report finding them. The Item Finder also shows where the game data says ores can spawn, and what Wikelo asks for and gives, with your own goals and notes of what you hold.
+- Its Missions page lists the contracts the game data marks as released and gives a real title, with who gives them (where the data names a giver), the places the data lists for them, the pay the data names and the blueprints they can give.
+- It can show the hangar, the vault door and your running countdowns in a small overlay on top of the game, when the game runs in borderless windowed mode. With **Settings > Event feed > Show game events in the overlay** switched on (after choosing the game's `Game.log` there), the overlay also shows your own HUD notifications, read from that log file; the lines are not saved or sent anywhere.
 - It shows what RSI's own status page says about the game's servers, and can tell you when they are back after a maintenance.
+- In **Settings > Back up and restore** it can save your timers and refinery jobs, loadouts, own prices, the hold in My Haul, calculator inputs, Wikelo notes and goals, most of your settings and the game numbers to one file in a `VerseOps backups` folder in your Documents, and restore them from it.
 
-Timers are community-measured ("about"), prices are community reports, and the server status is only what RSI's status page says. Nothing in it is exact, and the app itself is not official.
+The hangar's built-in timer and the vault door run on community-measured figures, so their times are "about". UEX's prices, and where players report finding items, are community reports. Ship, item and mission facts come from the game data as the Star Citizen Wiki API serves it, and some ship figures are estimates; until that ship data is loaded, My Haul and the trade margin take a ship's cargo from UEX and say so. The server status is only what RSI's status page says. Nothing in it is exact, and the app itself is unofficial.
 
 ## Install
 
