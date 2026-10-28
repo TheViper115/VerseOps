@@ -50,26 +50,37 @@ Only the released files and this text. Beside each setup file lie three small fi
 
 ## Your data and privacy, in short
 
-VerseOps has no account and no telemetry. It asks four services, and nothing else:
+VerseOps has no account and no telemetry. It asks seven services, at the addresses it comes with:
 
 | Service | For what |
 | --- | --- |
 | UEX (`api.uexcorp.uk`, with `api.uexcorp.space` as a second address) | Prices, terminals, the live game version |
-| Star Citizen Wiki API (`api.star-citizen.wiki`) | Ships and parts |
+| Star Citizen Wiki API (`api.star-citizen.wiki`) | Ships and parts; the game facts of an item when you open its sheet in the Item Finder; the Item Finder's game records, ore places and Wikelo exchanges; the mission list and a contract's details on the Missions page |
 | RSI status page (`status.robertsspaceindustries.com`) | What RSI says about the game's services |
-| GitHub (`github.com`, this page) | Whether a newer VerseOps exists, and the setup file when you press to update |
+| Star Citizen Wiki pages (`starcitizen.tools`) | The community note of an item whose sheet you open in the Item Finder |
+| Star Citizen Wiki pictures (`media.starcitizen.tools` and `cdn.star-citizen.wiki`) | The picture of an item whose sheet you open in the Item Finder |
+| Cornerstone pictures (`cstone.space`) | The same, when the item's game record names a picture on Cornerstone's site instead. Of Cornerstone VerseOps takes the pictures alone. |
+| GitHub (`github.com`, this page, and its file servers whose names end in `githubusercontent.com`) | Whether a newer VerseOps exists, and the setup file when you press to update |
 
-The last two can be switched off in the app's Settings. VerseOps does not read the game's memory or its network traffic, puts nothing into the game and sends it no input.
+- They are plain requests for public data, over https. No account, no key, and nothing about you or your game is sent. As with any web request, the service sees your internet address. The requests say that they come from VerseOps, with its version number and the address of this page.
+- These are the addresses as shipped. The first four are in VerseOps' game numbers file (`game-config.json`, under `uex`, `shipData`, `serverStatus` and `itemFinder`), which you can edit; if you change one there, VerseOps asks that address instead. The picture hosts and GitHub are built into the app.
+- When UEX or the Star Citizen Wiki API answers a request by pointing it to another address, VerseOps follows it, as a browser would: at most five times, over https only, and never to this PC or a local network. RSI's status page, the wiki's pages and the picture hosts are never followed to another host, and GitHub only to its own file servers.
+- That is what VerseOps itself asks. If Windows is set to use a proxy, these requests go through it. WebView2, the part of Windows that draws the window, is Microsoft's, and VerseOps does not control it.
+- These can be switched off in the app's Settings: the server status (**Server status > Check RSI's server status**: then RSI's status page is not asked at all), the check for updates (**Updates > Check for updates**: then VerseOps asks GitHub nothing by itself; **Check now** still asks once), item pictures (**Item Finder > Show item pictures**: then no picture is asked for) and community notes (**Item Finder > Show community notes from the Star Citizen Wiki**: then the wiki's pages are not asked).
+- VerseOps does not read the game's memory or its network traffic, puts nothing into the game and sends it no input.
 
 ## Credits and thanks
 
 VerseOps shows other people's work. Thank you to:
 
 - **Prices:** [UEX](https://uexcorp.space) (uexcorp.space). Community reports: latest and ~15-day average.
-- **Ship and item data:** [Star Citizen Wiki API (api.star-citizen.wiki)](https://api.star-citizen.wiki). The data is for non-commercial use only.
+- **Ship, item and mission data:** [Star Citizen Wiki API (api.star-citizen.wiki)](https://api.star-citizen.wiki). The data is for non-commercial use only.
 - **Ship figures:** worked out with the rules of [ScDataDumper](https://github.com/octfx/ScDataDumper), the open data generator behind the Star Citizen Wiki API. Some of them are estimates, and the Ships page says which.
 - **Hangar community timer reference:** [exec.xyxyll.com](https://exec.xyxyll.com) by Xyxyll (MIT licence).
 - **Server status:** [RSI status page (status.robertsspaceindustries.com)](https://status.robertsspaceindustries.com). The status words and the notices VerseOps shows from it are RSI's own.
+- **Item pictures:** Star Citizen Wiki ([starcitizen.tools](https://starcitizen.tools) and [star-citizen.wiki](https://star-citizen.wiki)) and Cornerstone ([cstone.space](https://cstone.space)), credited under each picture. The items shown are game content of Cloud Imperium Games.
+- **Community notes:** Star Citizen Wiki ([starcitizen.tools](https://starcitizen.tools)), text under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), quoted as its editors wrote it with the page and its edit date under each quote.
+- **Where players find it:** community reports gathered and checked by VerseOps; each source is linked under its report.
 
 Fonts, each under the SIL Open Font License 1.1: Rajdhani, Inter, JetBrains Mono (from the Fontsource packages).
 
@@ -90,4 +101,4 @@ Libraries, with the licences their packages state:
 | rodio, reqwest, url, serde, serde_json, base64, windows (Rust crates) | MIT OR Apache-2.0 |
 | minisign-verify (Rust crate; it checks the signature of an update) | MIT |
 
-VerseOps contains no RSI or CIG logos and no game art. Its look is its own.
+VerseOps contains no RSI or CIG logos, and its look is its own. The one place that shows game art is the Item Finder's item sheet: the picture of an item, from the Star Citizen Wiki or Cornerstone, with its source under it.
